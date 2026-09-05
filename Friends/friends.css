@@ -1,0 +1,468 @@
+:root {
+--bg: #0d0d0d;
+--card: #161616;
+--card-hover: #1d1d1d;
+--primary: #ff3b3b;
+--text: #ffffff;
+--text-light: #b5b5b5;
+--border: rgba(255, 255, 255, 0.08);
+--shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+--radius: 18px;
+--transition: 0.35s ease;
+
+--font-display: "Poppins", sans-serif;
+--font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+--font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(255, 59, 59, 0.07) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(255, 59, 59, 0.04) 0%, transparent 40%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6, .friend-name {
+  font-family: var(--font-display);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1220px, 92%);
+  margin: auto;
+}
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(13, 13, 13, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo span, .logo .logo-bracket {
+  color: var(--primary);
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+nav a {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-light);
+  transition: var(--transition);
+  position: relative;
+}
+
+nav a:hover, nav a.active {
+  color: #fff;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition);
+}
+
+nav a:hover::after, nav a.active::after {
+  width: 100%;
+}
+
+/* HERO SECTION */
+
+.friends-hero {
+  padding: 46px 0 20px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.friends-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.friends-hero .subtitle {
+  font-family: var(--font-body);
+  color: var(--text-light);
+  max-width: 580px;
+  margin: 0 auto;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+/* FRIENDS SECTION */
+
+.section {
+  padding: 24px 0 60px;
+}
+
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* FRIEND CARD */
+
+.friend-card {
+  background: #141414;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 16px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition:
+    transform var(--transition),
+    background var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.friend-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.friend-card:hover {
+  transform: translateY(-6px);
+  background: #1a1a1a;
+  border-color: rgba(255, 59, 59, 0.45);
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.55),
+    0 0 22px rgba(255, 59, 59, 0.12);
+}
+
+.friend-card:hover::before {
+  opacity: 1;
+}
+
+/* AVATAR */
+
+.avatar-wrap {
+  width: 86px;
+  height: 86px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  padding: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.friend-card:hover .avatar-wrap {
+  transform: scale(1.05);
+  border-color: rgba(255, 59, 59, 0.5);
+  box-shadow: 0 0 16px rgba(255, 59, 59, 0.25);
+}
+
+.friend-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.friend-avatar.breachforce-avatar {
+  object-fit: contain;
+  background: #000000;
+  padding: 6px;
+}
+
+/* ROLE TAG */
+
+.friend-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+}
+
+/* NAME */
+
+.friend-name {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+/* DESCRIPTION */
+
+.friend-desc {
+  color: var(--text-light);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 64px;
+}
+
+/* BUTTON */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: var(--transition);
+  margin-top: auto;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn span {
+  display: inline-block;
+  transition: transform var(--transition);
+}
+
+.btn-outline {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(255, 59, 59, 0.4);
+}
+
+.btn-outline:hover span {
+  transform: translateX(3px);
+}
+
+.btn-small {
+  padding: 8px 20px;
+  font-size: 0.88rem;
+}
+
+/* FOOTER */
+
+footer {
+  margin-top: auto;
+  padding: 30px 0;
+  border-top: 1px solid var(--border);
+}
+
+footer p {
+  text-align: center;
+  color: #777;
+  font-size: 0.84rem;
+  font-family: var(--font-body);
+}
+
+/* SCROLL TOP */
+
+#topBtn {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  box-shadow: 0 8px 24px rgba(255, 59, 59, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#topBtn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#topBtn:hover {
+  transform: translateY(-4px);
+}
+
+/* FADE */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+  .friends-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 16px;
+    width: 100%;
+  }
+
+  nav a {
+    font-size: 0.86rem;
+  }
+
+  .friends-hero {
+    padding: 32px 0 16px;
+  }
+
+  .friends-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .friend-card {
+    padding: 22px 14px;
+  }
+
+  #topBtn {
+    right: 16px;
+    bottom: 16px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (max-width: 520px) {
+  .logo {
+    font-size: 1.05rem;
+  }
+
+  .friends-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+}

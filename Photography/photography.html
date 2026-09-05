@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography | Maruti Marathe</title>
+  <link rel="stylesheet" href="photography.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-bracket">&lt;</span>Digital Notes<span class="logo-bracket">/&gt;</span>
+      </a>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../Blog/blogs.html">Blog</a>
+        <a href="../Blog/dark.html" class="nav-link">Darknet Diaries & podcasts</a>
+        <a href="../Blog/personal.html">Personal Blog</a>
+        <a href="../Notes/notes.html">Notes</a>
+        <a href="photography.html" class="active">Photography</a>
+        <a href="../Friends/friends.html">Friends</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="gallery-hero">
+    <div class="container">
+      <span class="eyebrow">// GALLERY</span>
+      <h1>Photography &amp; Moments</h1>
+      <p>
+        Captured frames, street perspectives, night lights, and quiet moments.
+      </p>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY (CLEAN NO TYPES) -->
+  <main class="container">
+    <div class="photo-grid" id="photoGrid">
+
+      <!-- PHOTO 1 -->
+      <article class="photo-card">
+        <div class="photo-thumb">
+          <img src="../Img/Crow.jpg" alt="Late night session" loading="lazy">
+          <div class="photo-overlay">
+            <span class="overlay-badge">View Photo</span>
+          </div>
+        </div>
+        <div class="photo-info">
+          <h3 class="photo-title">Marine Lines</h3>
+        </div>
+      </article>
+
+      <!-- PHOTO 2 -->
+      <article class="photo-card">
+        <div class="photo-thumb">
+          <img src="../Img/Mumbai Loca.jpg" alt="Hardware in the wild" loading="lazy">
+          <div class="photo-overlay">
+            <span class="overlay-badge">View Photo</span>
+          </div>
+        </div>
+        <div class="photo-info">
+          <h3 class="photo-title">Lifeline</h3>
+        </div>
+      </article>
+
+      <!-- PHOTO 3 -->
+      <article class="photo-card" onclick="window.open('https://pin.it/5CC68xzW3', '_blank')">
+  <div class="photo-thumb">
+    <img src="../Img/pin.jpg" alt="Community Gathering" loading="lazy">
+    <div class="photo-overlay">
+      <span class="overlay-badge">Visit Page</span>
+    </div>
+  </div>
+
+  <div class="photo-info">
+    <h3 class="photo-title">Empty-Page</h3>
+    <p class="photo-desc">For more photos, visit my Pinterest page.</p>
+  </div>
+</article>
+
+    </div>
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+      <img src="" alt="Full view" class="lightbox-img" id="lightboxImg">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button id="topBtn" aria-label="Scroll to top">↑</button>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Maruti Marathe. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="photography.js"></script>
+</body>
+</html>
